@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>今日の日付と曜日</title>
+</head>
+<body>
+    <div style="font-family:'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;">
+        <div id="date" style="text-align: center;"></div>
+        <div id="day" style="text-align: center; font-weight: bolder;"></div>
+    </div>
+
+    <script type="text/javascript">
+        var date = new Date();
+        var year = date.getFullYear() ;	// 年
+        var month = date.getMonth() + 1 ;	// 月
+        var day = date.getDate() ;	// 日
+        var dayOfWeek = date.getDay() ;	// 曜日(数値)
+        var dayOfWeekStr = [ "日", "月", "火", "水", "木", "金", "土" ][dayOfWeek] ;	// 曜日(日本語表記)
+
+        var dateJPN = year + "年" + month + "月" + day + "日";
+
+        document.getElementById("date").innerHTML = dateJPN;
+        document.getElementById("day").innerHTML = dayOfWeekStr + "曜日";
+
+        let dayJPN= document.getElementById("day");
+
+        if(dayOfWeekStr == "土"){
+            dayJPN.style.color = "blue"
+        } else if(dayOfWeekStr == "日"){
+            dayJPN.style.color = "red"
+        }
+
+    </script>
+</body>
+</html>
